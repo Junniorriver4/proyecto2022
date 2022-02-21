@@ -1,0 +1,220 @@
+{% extends 'streamapp/home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0 text-dark">
+                  <font style="vertical-align: inherit"
+                    ><font style="vertical-align: inherit"
+                      >Panel Familiar</font
+                    ></font>
+                </h1>
+              </div>
+              <!-- /.col -->
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item">
+                    <a href="{% url 'index' %}"
+                      ><font style="vertical-align: inherit"
+                        ><font style="vertical-align: inherit">Home</font></font
+                      ></a>
+                  </li>
+                  <li class="breadcrumb-item active">
+                    <font style="vertical-align: inherit"
+                      ><font style="vertical-align: inherit"
+                        >Panel Familiar</font
+                      ></font>
+                  </li>
+                </ol>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+</div>
+
+<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-4">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Registrar familiares</font></font></h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form enctype="multipart/form-data" method="post">
+               {% csrf_token %}
+                {% for campo in formulario %}
+                <div class="card-body">
+                    <div class="form-group">
+                        <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nombres:</font></font></label>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" inputmode="text">
+                        </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apellidos:</font></font></label>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" inputmode="text">
+                        </div>
+                    </div>
+                  
+
+                  <div class="form-group">
+                    <label for="exampleInputFile"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Subir archivos</font></font></label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Elija el archivo</font></font></label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Subir</font></font></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Registrar</font></font></button>
+                  <button type="submit" class="btn btn-default float-right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cancelar</font></font></button>
+                </div>
+                {% endfor %}
+              </form>
+            </div>
+          </div>
+         
+          <div class="col-md-8">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lista de familiares</font></font></h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">N°</font></font></th>
+                      <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nombres y Apellidos</font></font></th>
+                      <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Progreso</font></font></th>
+                      <th style="width: 40px"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Etiqueta</font></font></th>
+                      <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Opciones</font></font></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for RegistroF in RegistroF%}
+                    <tr>
+                      <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{RegistroF.id}}</font></font></td>
+                      <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{RegistroF.nombre}}</font></font></td>
+                      <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{RegistroF.apellido}}</font></font></td>
+                      <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><img src="{{RegistroF.imagen.url}}" width="80" height="50" /></font></font></td>
+                      
+                      
+                      <td class="project-actions ">
+
+                        <!--MODAL DE FROM ACTULIAZAR-->
+
+                          <div class="modal fade"  tabindex="-1" role="dialog" id="modal">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content card card-primary">
+                                <div class="modal-header">
+                                  <h5 class="modal-title">Actualizar datos</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <form enctype="multipart/form-data" method="post">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nombres:</font></font></label>
+
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" inputmode="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apellidos:</font></font></label>
+
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" inputmode="text">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                  </form>
+
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-primary">Acualizar</button>
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <a class="btn btn-info btn-sm"  data-toggle="modal" data-target="#modal">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                          </a>
+                          
+                          <a class="btn btn-danger btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                          </a>
+
+                        <!--FIN MODAL-->
+
+                      </td>
+                    </tr>
+                    {% endfor %}
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+
+              <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">«</font></font></a></li>
+                  <li class="page-item"><a class="page-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font></a></li>
+                  <li class="page-item"><a class="page-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2</font></font></a></li>
+                  <li class="page-item"><a class="page-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3</font></font></a></li>
+                  <li class="page-item"><a class="page-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">»</font></font></a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+
+{% endblock %}

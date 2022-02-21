@@ -1,0 +1,176 @@
+{% extends 'streamapp/home.html' %} {% load static %} 
+
+{% block content %}
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">
+          <font style="vertical-align: inherit"
+            ><font style="vertical-align: inherit"
+              >Camára en Vivo</font
+            ></font>
+        </h1>
+      </div>
+      <!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}"
+              ><font style="vertical-align: inherit"
+                ><font style="vertical-align: inherit">Hogar</font></font
+              ></a>
+          </li>
+          <li class="breadcrumb-item active">
+            <font style="vertical-align: inherit"
+              ><font style="vertical-align: inherit"
+                >Camára en Vivo</font
+              ></font>
+          </li>
+        </ol>
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+</div>
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <!-- /.Camaras-->
+        <div class="card direct-chat direct-chat-primary">
+          <div class="card-header ui-sortable-handle" style="cursor: move">
+            <h3 class="card-title">
+              <font style="vertical-align: inherit"
+                ><font style="vertical-align: inherit">Camara 1</font></font
+              >
+              <td class="project-actions ">
+                          <a class="btn btn-info btn-sm" href="#">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                          </a>
+
+                          <a class="btn btn-danger btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                          </a>
+                      </td>
+            </h3>
+            <!-- /botones -->
+
+            <div class="card-tools">
+              <button
+                type="button"
+                class="btn btn-tool"
+                data-card-widget="collapse"
+              >
+                <i class="fas fa-minus"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-tool"
+                title="Contactos"
+                data-widget="chat-pane-toggle"
+              >
+                <i class="far fa-window-maximize"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div
+              class="widget-user-header text-white"
+              style="background: url('../dist/img/photo1.png')"
+            >
+              <!--<img src="{% url 'mask_feed' %}">-->
+            </div>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">
+              <font style="vertical-align: inherit"
+                ><font style="vertical-align: inherit"
+                  >Iniciar video</font
+                ></font
+              >
+              
+            </button>
+
+            <button type="button" class="btn btn-danger float-right">
+              <font style="vertical-align: inherit"
+                ><font style="vertical-align: inherit">Quitar video</font></font
+              >
+            </button>
+          </div>
+          <!-- /.card-footer-->
+        </div>
+
+        <!-- /.card fin -->
+      </div>
+      <!-- /.col-md-6 -->
+      <div class="col-lg-6">
+        <div class="card direct-chat direct-chat-primary">
+          <div class="card-header ui-sortable-handle" style="cursor: move">
+            <h3 class="card-title">
+              <font style="vertical-align: inherit"
+                ><font style="vertical-align: inherit">Camara 2</font></font
+              >
+            </h3>
+            <!-- /botones -->
+            <div class="card-tools">
+              <button
+                type="button"
+                class="btn btn-tool"
+                data-card-widget="collapse"
+              >
+                <i class="fas fa-minus"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-tool"
+                title="Contactos"
+                data-widget="chat-pane-toggle"
+                command=""
+              >
+                <i class="far fa-window-maximize"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div
+              class="widget-user-header text-white"
+              style="background: url('../dist/img/photo1.png')"
+            >
+              <!--<img src="{% url 'mask_feed' %}">-->
+            </div>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">
+              <font style="vertical-align: inherit"
+                ><font style="vertical-align: inherit"
+                  >Iniciar video</font
+                ></font
+              >
+            </button>
+            <button type="button" class="btn btn-danger float-right" command="">
+              <font style="vertical-align: inherit"
+                ><font style="vertical-align: inherit">Quitar video</font></font
+              >
+            </button>
+          </div>
+          <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col-md-6 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+</div>
+{% endblock %}
